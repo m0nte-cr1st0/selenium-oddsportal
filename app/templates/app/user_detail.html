@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% block header %}
+<h1>{{ object.username }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container-user">
+    <div class="container-user-bottom">
+        <b>oddsportal_username:</b> {{ object.oddsportal_username }}
+        </div>
+    <div class="container-user-left">
+<!--    <div class="row">-->
+<!--        <div class="col" style="margin-left: 20%">-->
+        <div class="item"><b>Email:</b> {{ object.email }}</div>
+        <div class="item"><b>Telegram:</b> {{ object.telegram }}</div>
+
+    </div>
+    <div class="container-user-right">
+<!--        </div>-->
+<!--        <div class="col">-->
+        <div class="item"><b>Email notification:</b> {% if object.send_to_email %}Yes{% else %}{% endif %}</div>
+        <div class="item"><b>Telegram notification:</b> {% if object.send_to_telegram %}Yes{% else %}No{% endif %}</div>
+    </div>
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row" style="margin-left: 19%">-->
+<!--        <div class="col">-->
+
+<!--        </div>-->
+<!--        <div class="col">-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row" style="margin-left: 19%">-->
+<!--        <div class="col">-->
+<!--    </div>-->
+    <a href="{% url 'profile_update' request.user.pk %}"><button type="button" class="btn btn-primary edit-button">Edit</button></a>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+
+{% block header %}
+  <h1 class="predictions_h1">Next predictions</h1>
+{% endblock %}
+
+{% block content %}
+<table class="table table-bordered table-sm predictions-next-table" style="text-align:center">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Sport</th>
+      <th scope="col">League</th>
+      <th scope="col">Teams</th>
+      <th scope="col">Bet</th>
+      <th scope="col">Prediction</th>
+      <th scope="col">Max. coefficient</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for prediction in object_list %}
+    <tr>
+      <td scope="row">{{ prediction.date }}</td>
+      <td scope="row">{{ prediction.sport }}</td>
+      <td scope="row">{{ prediction.league }}</td>
+      <td scope="row"><a href="{{ prediction.link_to_match }}">{{ prediction.teams }}</a></td>
+      <td scope="row"><a href="{{ prediction.link_to_odd }}">Click{{ prediction.bet }}</a></td>
+      <td scope="row">{{ prediction.prediction }}</td>
+      <td scope="row">{{ prediction.predictionbk_set.last.coefficient }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
