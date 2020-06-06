@@ -7,7 +7,7 @@ cffi==1.12.3
 chardet==3.0.4
 cryptography==2.7
 defusedxml==0.6.0
-Django==2.2.6
+Django==2.2.13
 django-allauth==0.40.0
 django-background-task==0.1.8
 future==0.18.0
